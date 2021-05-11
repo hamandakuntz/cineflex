@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function SessionSeats() {
     return (
       <>
@@ -83,7 +85,9 @@ export default function SessionSeats() {
           <input type="text" className="name" placeholder="Digite seu nome"/>
           <div className="title">CPF do comprador:</div>
           <input type="text" className="cpf" placeholder="Digite seu CPF"/>
-          <button className="reserve-seat">Reservar assento(s)</button>
+          <Link to="/sucesso">
+            <button className="reserve-seat">Reservar assento(s)</button>
+          </Link>
         </div>
         
       </>

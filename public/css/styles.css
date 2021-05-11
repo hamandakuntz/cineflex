@@ -61,10 +61,10 @@ img {
   width: 100%;
   background-color: #dfe6ed;
   border: 1px solid #9eadba;
-  position: fixed;  
+  position: fixed;
   bottom: 0;
   left: 0;
-  display: flex;  
+  display: flex;
 }
 
 .footer-movie {
@@ -88,19 +88,19 @@ img {
 }
 
 .title-session {
-    font-size: 26px;
-    padding-top: 35px;
-    color: #293845;
+  font-size: 26px;
+  padding-top: 35px;
+  color: #293845;
 }
 
 .title-hour {
-    font-size: 26px;
-    color: #293845;
+  font-size: 26px;
+  color: #293845;
 }
 
 .info-session {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .seats {
@@ -169,7 +169,7 @@ img {
 .user-data {
   max-width: 327px;
   margin: 0 auto;
-  margin-top: 70px;  
+  margin-top: 70px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -196,6 +196,60 @@ img {
   color: #ffffff;
   font-size: 18px;
   margin-top: 20px;
-  padding: 15px;  
+  padding: 15px;
   margin-bottom: 200px;
 }
+
+.sucess {
+  font-size: 25px;
+  text-align: center;
+  margin: 40px;
+  color: #247a6b;
+  font-weight: bold;
+  margin-bottom: 80px;
+}
+
+.session-info-title {
+  font-size: 24px;
+  color: #293845;
+  padding-left: 8px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.session-movie {
+  font-size: 22px;
+  padding-left: 8px;
+}
+
+.session-info {
+  font-size: 22px;
+  padding-left: 8px;
+}
+
+.ticket-info-title,
+.user-info-title {
+  font-size: 24px;
+  color: #293845;
+  padding-left: 8px;
+  font-weight: bold;
+  margin-top: 45px;
+  margin-bottom: 15px;
+}
+
+.home {    
+  width: 200px;
+  border: none;
+  background: #e8833a;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 18px;
+  margin-top: 90px;
+  padding: 15px;
+  margin-left: 70px;  
+}
+
+button:hover{
+    cursor: pointer;
+}
+
