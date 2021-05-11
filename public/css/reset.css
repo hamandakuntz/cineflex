@@ -49,6 +49,9 @@ table {
 strong {
     font-weight: bold;	
 }
+a {
+	text-decoration: none;
+}
 * {
 	box-sizing: border-box;
 }
