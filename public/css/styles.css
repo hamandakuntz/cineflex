@@ -1,89 +1,201 @@
 body {
-    font-family: 'Roboto';
-    background-color: #FFFFFF;
+  font-family: "Roboto";
+  background-color: #ffffff;
 }
 
-.header {    
-    background-color:#C3CFD9;
-    font-family: 'Righteous';
-    text-align: center;
-    font-size: 34px;    
+.header {
+  background-color: #c3cfd9;
+  font-family: "Righteous";
+  text-align: center;
+  font-size: 34px;
 }
 
 .header p {
-   padding: 12px;
-   color: #E8833A;
+  padding: 12px;
+  color: #e8833a;
 }
 
 .selection {
-    font-size: 25px; 
-    text-align: center;        
-    margin: 40px;
+  font-size: 25px;
+  text-align: center;
+  margin: 40px;
 }
 
 img {
-    margin: 8px;         
+  margin: 8px;
 }
 
 .movies {
-    display: flex;
-    flex-wrap: wrap;    
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .movie {
-    margin: 25px; 
-    background: #FFFFFF;
-    box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1);
-    border-radius: 3px;
+  margin: 25px;
+  background: #ffffff;
+  box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
 }
 .session-day {
-    padding-left: 10px;
-    font-size: 20px;    
+  padding-left: 10px;
+  font-size: 20px;
 }
 
 .session-time {
-    display: flex;    
-    margin-bottom: 20px;
-    margin-top: 8px;
+  display: flex;
+  margin-bottom: 20px;
+  margin-top: 8px;
 }
 
 .time {
-    background: #E8833A;
-    border-radius: 3px;  
-    padding: 10px;
-    color: #FFFFFF;
-    font-size: 18px;
-    margin: 8px;
+  background: #e8833a;
+  border-radius: 3px;
+  padding: 10px;
+  color: #ffffff;
+  font-size: 18px;
+  margin: 8px;
 }
 
-.footer {    
-    width: 100%;
-    background-color: #DFE6ED;
-    border: 1px solid #9EADBA;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    display: flex;        
+.footer {
+  width: 100%;
+  background-color: #dfe6ed;
+  border: 1px solid #9eadba;
+  position: fixed;  
+  bottom: 0;
+  left: 0;
+  display: flex;  
 }
 
 .footer-movie {
-    width: 64px;
-    height: 89px;
-    background-color: #FFFFFF;
-    margin: 15px;
+  width: 64px;
+  height: 89px;
+  background-color: #ffffff;
+  margin: 15px;
 }
 
 .footer-movie img {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 8px;    
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 8px;
 }
 
 .footer .title {
-    font-size: 26px;   
-    padding-top: 40px;    
+  font-size: 26px;
+  padding-top: 40px;
+  color: #293845;
+}
+
+.title-session {
+    font-size: 26px;
+    padding-top: 35px;
     color: #293845;
 }
 
+.title-hour {
+    font-size: 26px;
+    color: #293845;
+}
+
+.info-session {
+    display: flex;
+    flex-direction: column;
+}
+
+.seats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 503px;
+}
+
+.seat {
+  background: #c3cfd9;
+  border: 1px solid #808f9d;
+  box-sizing: border-box;
+  border-radius: 15px;
+  margin: 7px;
+}
+
+.seat div {
+  margin: 9px;
+  font-size: 11px;
+}
+
+.seats-subtitle {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.selected .circle {
+  height: 25px;
+  width: 25px;
+  background-color: #8dd7cf;
+  color: #8dd7cf;
+  text-align: center;
+  border: 1px solid #1aae9e;
+  box-sizing: border-box;
+  border-radius: 17px;
+  margin-left: 25px;
+}
+
+.available .circle {
+  height: 25px;
+  width: 25px;
+  background-color: #c3cfd9;
+  color: #c3cfd9;
+  text-align: center;
+  border: 1px solid #7b8b99;
+  box-sizing: border-box;
+  border-radius: 17px;
+  margin-left: 25px;
+}
+
+.unavailable .circle {
+  height: 25px;
+  width: 25px;
+  background-color: #fbe192;
+  color: #fbe192;
+  text-align: center;
+  border: 1px solid #f7c52b;
+  box-sizing: border-box;
+  border-radius: 17px;
+  margin-left: 25px;
+  background: #fbe192;
+}
+
+.user-data {
+  max-width: 327px;
+  margin: 0 auto;
+  margin-top: 70px;  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 18px;
+  margin-top: 15px;
+}
+
+.name,
+.cpf {
+  margin-top: 5px;
+  height: 50px;
+  width: 100%;
+}
+
+.reserve-seat {
+  width: 200px;
+  border: none;
+  background: #e8833a;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 18px;
+  margin-top: 20px;
+  padding: 15px;  
+  margin-bottom: 200px;
+}
