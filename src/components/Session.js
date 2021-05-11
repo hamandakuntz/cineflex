@@ -1,23 +1,48 @@
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import Footer from "./Footer";
 
 export default function Session() {
+  const { idFilme } = useParams();
+  const [movieSession, setMovieSession] = useState([]);  
+  const [movieTitle, setMovieTitle] = useState([]);
+  const [movieImg, setMovieImg] = useState([]);
+
+  useEffect(() => {
+    const promise = axios.get(
+      `https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies/${idFilme}/showtimes`
+    );
+
+    promise.then((res) => {
+      setMovieSession(res.data.days); 
+      setMovieTitle(res.data.title);
+      setMovieImg(res.data.posterURL)
+      console.log(res.data)     
+    });
+  }, []);
+
+
   return (
     <>
       <div className="selection">Selecione o horário</div>
-      <div className="session-day">Quinta-feira - 24/06/2021</div>
-      <div className="session-time">
-        <Link to="/sessao/id">
-          <div className="time">15:00</div>
-        </Link>
-        <Link to="/sessao/id">
-          <div className="time">16:00</div>
-        </Link>
-      </div>
-      <div className="session-day">Sexta-feira - 25/06/2021</div>
-      <div className="session-time">
-        <div className="time">15:00</div>
-        <div className="time">19:00</div>
-      </div>
+      {movieSession.map((movie) => (
+        <div>
+          <div className="session-day">
+            {movie.weekday} - {movie.date}
+          </div>
+          <div className="session-time">   
+                <Link to={`/sessao/${movie.showtimes[0].id}`}>
+                  <div className="time">{movie.showtimes[0].name}</div>
+                </Link>
+                <Link to={`/sessao/${movie.showtimes[1].id}`}>
+                  <div className="time">{movie.showtimes[1].name}</div>
+                </Link>                      
+          </div>
+        </div>
+      ))};
+      <Footer movieImg={movieImg} movieName={movieTitle}/>      
     </>
   );
 }

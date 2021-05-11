@@ -1,10 +1,10 @@
-export default function Footer() {
+export default function Footer(props) {
     return (
         <div className="footer">
             <div className="footer-movie">
-                <img src="/assets/images/enolaholmes.png"></img>
+                <img src={props.movieImg}></img>
             </div>
-            <div className="title">Enola Holmes</div>
+            <div className="title">{props.movieName}</div>
         </div>
     );
 }

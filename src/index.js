@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom";
-import Content from "./components/MoviesList";
+import MoviesList from "./components/MoviesList";
 import Header from "./components/Header";
 import Session from "./components/Session";
 import Footer from "./components/Footer";
@@ -15,18 +15,17 @@ function App() {
       <Header />
       <Switch>
         <Route path="/" exact>
-          <Content />
+          <MoviesList />
         </Route>
-        <Route path="/filme/id" exact>
-         <Session />
-         <Footer />
+        <Route path="/filme/:idFilme" exact>
+          <Session />          
         </Route>
-        <Route path="/sessao/id" exact>
-         <SessionSeats/>   
-         <FooterSession />
+        <Route path="/sessao/:idSessao" exact>
+          <SessionSeats />
+          <FooterSession />
         </Route>
         <Route path="/sucesso" exact>
-            <Sucess />            
+          <Sucess />
         </Route>
       </Switch>
     </BrowserRouter>

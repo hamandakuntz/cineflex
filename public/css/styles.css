@@ -22,13 +22,15 @@ body {
 }
 
 img {
+  width: 145px;
+  height: 209px;
   margin: 8px;
 }
 
 .movies {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: center;  
 }
 
 .movie {
@@ -177,8 +179,7 @@ img {
 }
 
 .title {
-  font-size: 18px;
-  margin-top: 15px;
+  font-size: 18px;  
 }
 
 .name,
