@@ -6,10 +6,16 @@ import Footer from "./components/Footer";
 import SessionSeats from "./components/SessionSeats";
 import FooterSession from "./components/FooterSession";
 import Sucess from "./components/Sucess";
+import { useState, useEffect } from "react";
 
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 
 function App() {
+
+  const [movieSession, setMovieSession] = useState([]);  
+  const [movieTitle, setMovieTitle] = useState([]);
+  const [movieImg, setMovieImg] = useState([]);  
+
   return (
     <BrowserRouter>
       <Header />
@@ -18,11 +24,12 @@ function App() {
           <MoviesList />
         </Route>
         <Route path="/filme/:idFilme" exact>
-          <Session />          
+          <Session movieSession={movieSession} movieTitle={movieTitle} movieImg={movieImg} setMovieImg={setMovieImg} setMovieTitle={setMovieTitle} setMovieSession={setMovieSession} />          
+          <Footer movieImg={movieImg} movieName={movieTitle}/>   
         </Route>
         <Route path="/sessao/:idSessao" exact>
           <SessionSeats />
-          <FooterSession />
+          <FooterSession movieTitle={movieTitle} movieImg={movieImg} movieSession={movieSession}/>          
         </Route>
         <Route path="/sucesso" exact>
           <Sucess />

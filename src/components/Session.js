@@ -2,13 +2,12 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import Footer from "./Footer";
+import FooterSession from "./FooterSession";
 
-export default function Session() {
-  const { idFilme } = useParams();
-  const [movieSession, setMovieSession] = useState([]);  
-  const [movieTitle, setMovieTitle] = useState([]);
-  const [movieImg, setMovieImg] = useState([]);
+export default function Session(props) {
+  const { idFilme } = useParams();  
+  const {movieSession, setMovieSession, setMovieTitle, setMovieImg} = props;
+
 
   useEffect(() => {
     const promise = axios.get(
@@ -18,7 +17,7 @@ export default function Session() {
     promise.then((res) => {
       setMovieSession(res.data.days); 
       setMovieTitle(res.data.title);
-      setMovieImg(res.data.posterURL)
+      setMovieImg(res.data.posterURL)      
       console.log(res.data)     
     });
   }, []);
@@ -41,8 +40,8 @@ export default function Session() {
                 </Link>                      
           </div>
         </div>
-      ))};
-      <Footer movieImg={movieImg} movieName={movieTitle}/>      
+      ))};     
+         
     </>
   );
 }

@@ -118,10 +118,13 @@ img {
   box-sizing: border-box;
   border-radius: 15px;
   margin: 7px;
+  height: 26px;
+  width: 26px;
+  text-align: center;
 }
 
 .seat div {
-  margin: 9px;
+  margin-top: 7px;
   font-size: 11px;
 }
 
@@ -137,10 +140,25 @@ img {
   background-color: #8dd7cf;
   color: #8dd7cf;
   text-align: center;
-  border: 1px solid #1aae9e;
+  border: 1px solid #1AAE9E;
   box-sizing: border-box;
   border-radius: 17px;
   margin-left: 25px;
+}
+
+.selected-seat {
+  background-color: #8dd7cf;
+  border: 1px solid #808F9D;
+}
+
+.available-seat {
+  background-color: #c3cfd9;
+  border: 1px solid #808F9D;
+}
+
+.unavailable-seat {
+  background-color: #fbe192;
+  border: 1px solid #F7C52B;
 }
 
 .available .circle {
@@ -149,7 +167,7 @@ img {
   background-color: #c3cfd9;
   color: #c3cfd9;
   text-align: center;
-  border: 1px solid #7b8b99;
+  border: 1px solid #808F9D;
   box-sizing: border-box;
   border-radius: 17px;
   margin-left: 25px;
@@ -161,7 +179,7 @@ img {
   background-color: #fbe192;
   color: #fbe192;
   text-align: center;
-  border: 1px solid #f7c52b;
+  border: 1px solid #F7C52B;
   box-sizing: border-box;
   border-radius: 17px;
   margin-left: 25px;
@@ -187,6 +205,7 @@ img {
   margin-top: 5px;
   height: 50px;
   width: 100%;
+  margin-bottom: 10px;
 }
 
 .reserve-seat {
