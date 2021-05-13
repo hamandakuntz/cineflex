@@ -94,12 +94,12 @@ export default function SessionSeats({
           className="cpf"
           placeholder="Digite seu CPF"
         />
-        <Link to={{ pathname: "/sucesso", listClientInfo }}>
+        </div>
+        <Link className="button-reserve-seat" to={{ pathname: "/sucesso", listClientInfo }}>
           <button onClick={createListClientInfo} className="reserve-seat">
             Reservar assento(s)
           </button>
-        </Link>
-      </div>
+        </Link>      
       {sessionInfo.length === 0 ? (
         ""
       ) : (
