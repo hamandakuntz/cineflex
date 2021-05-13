@@ -28,9 +28,7 @@ export default function SessionSeats({
       setSessionSeats(res.data.seats);
       setSessionInfo(res.data);
     });
-  }, []);
-
-  console.log(listOfChosenSeats);
+  }, [idSessao, setSessionSeats, setSessionInfo]);  
 
   function createListClientInfo() {
     const newListClientInfo = {
@@ -53,8 +51,9 @@ export default function SessionSeats({
       <div className="seats">
         {sessionInfo.length === 0
           ? ""
-          : sessionSeats.map((seat, i) => (
+          : sessionSeats.map((seat) => (
               <Seat
+                key={seat.id}
                 id={seat.id}
                 listOfChosenSeats={listOfChosenSeats}
                 setListOfChosenSeats={setListOfChosenSeats}

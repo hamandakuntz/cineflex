@@ -6,7 +6,7 @@ export default function Sucess({
   listClientInfo,
   setListOfChosenSeats
 }) {
-    
+
   return (
     <>
       <div className="sucess">Pedido feito com sucesso!</div>
@@ -18,7 +18,7 @@ export default function Sucess({
 
       <div className="ticket-info-title">Ingressos</div>
       {listOfChosenSeats.map((info) => (
-        <div className="session-movie">Assento - {info.seatName}</div>
+        <div key={info.id} className="session-movie">Assento - {info.seatName}</div>
       ))}
 
       <div className="user-info-title">Comprador</div>

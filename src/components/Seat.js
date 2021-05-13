@@ -5,14 +5,24 @@ export default function Seat({ id, isAvailable, seatName, listOfChosenSeats, set
 
   function handleSeatClick() {
     if(isAvailable === false) {
-        alert("Esse assento não está disponível!")
+        alert("Esse assento não está disponível!")        
     } else {
-        isSelected ? setIsSelected(false) : setIsSelected(true);        
-        const newListOfChosenSeats = [...listOfChosenSeats, {id, seatName}]
-        setListOfChosenSeats(newListOfChosenSeats)           
+        isSelected ? deleteSelectedSeat() : addSelectedSeat();            
     }        
-  }   
+  }  
   
+  function addSelectedSeat(){
+    setIsSelected(true)
+    const newListOfChosenSeats = [...listOfChosenSeats, {id, seatName}]
+    setListOfChosenSeats(newListOfChosenSeats)      
+  }
+
+  function deleteSelectedSeat() {
+    setIsSelected(false);    
+    const newListOfChosenSeats = listOfChosenSeats.filter((item) => item.id !== id);
+    setListOfChosenSeats(newListOfChosenSeats);       
+  }
+    
   return (
     <div
       className={`seat ${

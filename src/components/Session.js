@@ -20,19 +20,19 @@ export default function Session() {
       setMovieTitle(res.data.title);
       setMovieImg(res.data.posterURL);
     });
-  }, []);
+  }, [idFilme]);
 
   return (
     <>
       <div className="selection">Selecione o horário</div>
       {movieSession.map((movie) => (
-        <div>
+        <div key={movie.id}>
           <div className="session-day">
             {movie.weekday} - {movie.date}
           </div>
           <div className="session-time">
             {movie.showtimes.map((showtime) => (
-              <Link className="showtime" to={`/sessao/${showtime.id}`}>
+              <Link key={showtime.id} className="showtime" to={`/sessao/${showtime.id}`}>
                 <div className="time">{showtime.name}</div>
               </Link>
             ))}
