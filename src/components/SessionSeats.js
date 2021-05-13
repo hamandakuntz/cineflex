@@ -5,11 +5,19 @@ import FooterSession from "./FooterSession";
 import axios from "axios";
 import Seat from "./Seat";
 
-export default function SessionSeats() {
+export default function SessionSeats({
+  listOfChosenSeats,
+  setListOfChosenSeats,
+  sessionInfo,
+  setSessionInfo,
+  sessionSeats,
+  setSessionSeats,
+  listClientInfo,
+  setListClientInfo,
+}) {
   const { idSessao } = useParams();
-  const [sessionSeats, setSessionSeats] = useState([]);  
-  const [sessionInfo, setSessionInfo] = useState([]);
-  
+  const [clientName, setClientName] = useState("");
+  const [clientCPF, setClientCPF] = useState("");
 
   useEffect(() => {
     const promise = axios.get(
@@ -22,24 +30,38 @@ export default function SessionSeats() {
     });
   }, []);
 
+  console.log(listOfChosenSeats);
 
-  if (sessionInfo.length === 0){
-    return (
-      <div>
+  function createListClientInfo() {
+    const newListClientInfo = {
+      ids: listOfChosenSeats.map((chosenSeat) => chosenSeat.id),
+      name: clientName,
+      cpf: clientCPF,
+    };
 
-      </div>
-    )
+    const promise = axios.post(
+      `https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/seats/book-many`,
+      newListClientInfo
+    );
+    promise.then((res) => console.log(res));
+    setListClientInfo({ ...listClientInfo, newListClientInfo });
   }
-
-  console.log()
 
   return (
     <>
       <div className="selection">Selecione o(s) assento(s)</div>
       <div className="seats">
-        {sessionSeats.map((seat, i) => (
-          <Seat key={i} isAvailable={seat.isAvailable} seatName={seat.name}/>
-        ))}
+        {sessionInfo.length === 0
+          ? ""
+          : sessionSeats.map((seat, i) => (
+              <Seat
+                id={seat.id}
+                listOfChosenSeats={listOfChosenSeats}
+                setListOfChosenSeats={setListOfChosenSeats}
+                isAvailable={seat.isAvailable}
+                seatName={seat.name}
+              />
+            ))}
       </div>
 
       <div className="seats-subtitle">
@@ -58,14 +80,37 @@ export default function SessionSeats() {
       </div>
       <div className="user-data">
         <div className="title">Nome do comprador:</div>
-        <input type="text" className="name" placeholder="Digite seu nome" />
+        <input
+          value={clientName}
+          onChange={(e) => setClientName(e.target.value)}
+          type="text"
+          className="name"
+          placeholder="Digite seu nome"
+        />
         <div className="title">CPF do comprador:</div>
-        <input type="text" className="cpf" placeholder="Digite seu CPF" />
-        <Link to="/sucesso">
-          <button className="reserve-seat">Reservar assento(s)</button>
+        <input
+          value={clientCPF}
+          onChange={(e) => setClientCPF(e.target.value)}
+          type="text"
+          className="cpf"
+          placeholder="Digite seu CPF"
+        />
+        <Link to={{ pathname: "/sucesso", listClientInfo }}>
+          <button onClick={createListClientInfo} className="reserve-seat">
+            Reservar assento(s)
+          </button>
         </Link>
       </div>
-      <FooterSession movieDay={sessionInfo.day.weekday} movieTitle={sessionInfo.movie.title} movieImg={sessionInfo.movie.posterURL} movieSession={sessionInfo.name}/>   
+      {sessionInfo.length === 0 ? (
+        ""
+      ) : (
+        <FooterSession
+          movieDay={sessionInfo.day.weekday}
+          movieTitle={sessionInfo.movie.title}
+          movieImg={sessionInfo.movie.posterURL}
+          movieSession={sessionInfo.name}
+        />
+      )}
     </>
   );
 }

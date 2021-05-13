@@ -5,10 +5,10 @@ import axios from "axios";
 import Footer from "./Footer";
 
 export default function Session() {
-  const { idFilme } = useParams();  
-  const [movieSession, setMovieSession] = useState([]);  
+  const { idFilme } = useParams();
+  const [movieSession, setMovieSession] = useState([]);
   const [movieTitle, setMovieTitle] = useState([]);
-  const [movieImg, setMovieImg] = useState([]);  
+  const [movieImg, setMovieImg] = useState([]);
 
   useEffect(() => {
     const promise = axios.get(
@@ -32,7 +32,7 @@ export default function Session() {
           </div>
           <div className="session-time">
             {movie.showtimes.map((showtime) => (
-              <Link to={`/sessao/${showtime.id}`}>
+              <Link className="showtime" to={`/sessao/${showtime.id}`}>
                 <div className="time">{showtime.name}</div>
               </Link>
             ))}
@@ -40,7 +40,7 @@ export default function Session() {
         </div>
       ))}
       ;
-      <Footer movieImg={movieImg} movieTitle={movieTitle}/>  
+      <Footer movieImg={movieImg} movieTitle={movieTitle} />
     </>
   );
 }

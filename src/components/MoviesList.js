@@ -11,7 +11,7 @@ export default function MoviesList() {
     );
 
     promise.then((response) => {
-      setMoviesImg(response.data);      
+      setMoviesImg(response.data);
     });
   }, []);
 
@@ -29,5 +29,5 @@ export default function MoviesList() {
         ))}
       </ul>
     </>
-  ); 
+  );
 }

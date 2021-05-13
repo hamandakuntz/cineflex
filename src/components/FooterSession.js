@@ -1,5 +1,4 @@
-export default function FooterSession({ movieImg, movieDay, movieTitle, movieSession }) {
-  console.log(movieSession)
+export default function FooterSession({ movieImg, movieDay, movieTitle, movieSession }) { 
   return (
     <div className="footer">
       <div className="footer-movie">
