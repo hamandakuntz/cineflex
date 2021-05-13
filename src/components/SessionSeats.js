@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import FooterSession from "./FooterSession";
 import axios from "axios";
+import Seat from "./Seat";
 
 export default function SessionSeats() {
   const { idSessao } = useParams();
-  const [sessionSeats, setSessionSeats] = useState([]);
-  const [isSelected, setIsSelected] = useState(false);
+  const [sessionSeats, setSessionSeats] = useState([]);  
+  const [sessionInfo, setSessionInfo] = useState([]);
+  
 
   useEffect(() => {
     const promise = axios.get(
@@ -15,36 +18,41 @@ export default function SessionSeats() {
 
     promise.then((res) => {
       setSessionSeats(res.data.seats);
-      console.log(res.data.seats);
+      setSessionInfo(res.data);
     });
   }, []);
+
+
+  if (sessionInfo.length === 0){
+    return (
+      <div>
+
+      </div>
+    )
+  }
+
+  console.log()
 
   return (
     <>
       <div className="selection">Selecione o(s) assento(s)</div>
       <div className="seats">
-        {sessionSeats.map((seat) => (
-          <div
-            className={`seat ${isSelected ? "selected-seat" : "available-seat"} ${
-              seat.isAvailable ? "available-seat" : "unavailable-seat"
-            } `} onClick={() => seat.isAvailable ? setIsSelected(true) : setIsSelected(false)}
-          >
-            <div>{seat.name}</div>
-          </div>
+        {sessionSeats.map((seat, i) => (
+          <Seat key={i} isAvailable={seat.isAvailable} seatName={seat.name}/>
         ))}
       </div>
 
       <div className="seats-subtitle">
         <div className="selected">
-          <div className="circle">l</div>
+          <div className="circle"></div>
           <div className="title">Selecionado</div>
         </div>
         <div className="available">
-          <div className="circle">l</div>
+          <div className="circle"></div>
           <div className="title">Disponível</div>
         </div>
         <div className="unavailable">
-          <div className="circle">l</div>
+          <div className="circle"></div>
           <div className="title">Indisponível</div>
         </div>
       </div>
@@ -57,6 +65,7 @@ export default function SessionSeats() {
           <button className="reserve-seat">Reservar assento(s)</button>
         </Link>
       </div>
+      <FooterSession movieDay={sessionInfo.day.weekday} movieTitle={sessionInfo.movie.title} movieImg={sessionInfo.movie.posterURL} movieSession={sessionInfo.name}/>   
     </>
   );
 }

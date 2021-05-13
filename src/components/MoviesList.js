@@ -20,8 +20,8 @@ export default function MoviesList() {
       <div className="selection">Selecione o filme</div>
 
       <ul className="movies">
-        {moviesImg.map((movie) => (
-          <Link to={`/filme/${movie.id}`}>
+        {moviesImg.map((movie, i) => (
+          <Link key={i} to={`/filme/${movie.id}`}>
             <li className="movie" key={movie.id}>
               <img src={movie.posterURL} alt="movie" />
             </li>
