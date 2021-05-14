@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import FooterSession from "./FooterSession";
 import axios from "axios";
 import Seat from "./Seat";
@@ -15,11 +16,17 @@ export default function SessionSeats({
   listClientInfo,
   setListClientInfo,
   handleButton,
-  setHandleButton
+  setHandleButton,  
 }) {
   const { idSession } = useParams();
   const [clientName, setClientName] = useState("");
-  const [clientCPF, setClientCPF] = useState("");
+  const [clientCPF, setClientCPF] = useState("");  
+
+  let history = useHistory();
+
+  function handleClick() {
+    history.push(`/filme/${sessionInfo.movie.id}`);  
+  }    
 
   useEffect(() => {
     const promise = axios.get(
@@ -55,6 +62,7 @@ export default function SessionSeats({
 
   return (
     <>
+      <button onClick={handleClick} className="go-back"><img src="/assets/images/previous.svg" alt="button"></img></button>
       <div className="selection">Selecione o(s) assento(s)</div>
       <div className="seats">
         {sessionInfo.length === 0
@@ -88,7 +96,7 @@ export default function SessionSeats({
       <div className="user-data">
         <div className="title-input">Nome do comprador:</div>
         <input
-          id="placeholder-text"
+          id="placeholder-text1"
           value={clientName}
           onChange={(e) => setClientName(e.target.value)}
           type="text"
@@ -97,7 +105,7 @@ export default function SessionSeats({
         />
         <div className="title-input">CPF do comprador:</div>
         <input
-          id="placeholder-text"
+          id="placeholder-text2"
           value={clientCPF}
           onChange={(e) => setClientCPF(e.target.value)}
           type="text"
@@ -107,7 +115,7 @@ export default function SessionSeats({
       </div>
       <Link
         className="button-reserve-seat"
-        to={{ pathname: "/sucesso", listClientInfo }}
+        to={{ pathname: "/sucesso", listClientInfo, idSession }}
       >
         <button onClick={createListClientInfo} className="reserve-seat" disabled={handleButton}>
           Reservar assento(s)

@@ -1,14 +1,25 @@
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export default function Sucess({
   listOfChosenSeats,
   sessionInfo,
   listClientInfo,
-  setListOfChosenSeats
+  setListOfChosenSeats,   
 }) {
+  
+  let history = useHistory();
 
-  return (
+  function handleClick() {
+    history.push(`/sessao/${sessionInfo.id}`);
+  }  
+
+  console.log(sessionInfo)
+
+
+  return (    
     <>
+      <button onClick={handleClick} className="go-back"><img src="/assets/images/previous.svg" alt="button"></img></button>
       <div className="sucess">Pedido feito com sucesso!</div>
       <div className="session-info-title">Filme e sessão</div>
       <div className="session-movie">{sessionInfo.movie.title}</div>

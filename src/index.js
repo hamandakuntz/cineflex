@@ -4,6 +4,7 @@ import Session from "./components/Session";
 import SessionSeats from "./components/SessionSeats";
 import Sucess from "./components/Sucess";
 import { useState } from "react";
+
 import  "./css/reset.css"
 import  "./css/styles.css"
 
@@ -14,7 +15,7 @@ function App() {
   const [sessionInfo, setSessionInfo] = useState([]);
   const [listClientInfo, setListClientInfo] = useState({});
   const [listOfChosenSeats, setListOfChosenSeats] = useState([]);
-  const [handleButton, setHandleButton] = useState(true);
+  const [handleButton, setHandleButton] = useState(true);  
 
   return (
     <BrowserRouter>
@@ -39,7 +40,7 @@ function App() {
             listClientInfo={listClientInfo}
             setListClientInfo={setListClientInfo}
             handleButton={handleButton}
-            setHandleButton={setHandleButton}
+            setHandleButton={setHandleButton}            
           />
         </Route>
         <Route path="/sucesso" exact>
@@ -47,7 +48,7 @@ function App() {
             setListOfChosenSeats={setListOfChosenSeats}
             listOfChosenSeats={listOfChosenSeats}
             sessionInfo={sessionInfo}
-            listClientInfo={listClientInfo}
+            listClientInfo={listClientInfo}            
           />
         </Route>
       </Switch>

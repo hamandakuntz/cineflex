@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Footer from "./Footer";
 
@@ -9,6 +10,12 @@ export default function Session() {
   const [movieSession, setMovieSession] = useState([]);
   const [movieTitle, setMovieTitle] = useState([]);
   const [movieImg, setMovieImg] = useState([]);
+
+  let history = useHistory();
+
+  function handleClick() {
+    history.push(`/`);  
+  } 
 
   useEffect(() => {
     const promise = axios.get(
@@ -24,7 +31,8 @@ export default function Session() {
 
   return (
     <>
-      <div className="selection">Selecione o horário</div>
+      <button onClick={handleClick} className="go-back"><img src="/assets/images/previous.svg" alt="button"></img></button>
+      <div className="selection">Selecione o horário</div>      
       {movieSession.map((movie, i) => (
         <div key={movie.id} className={`evolve ${movieSession.length - 1 === i ? "last" : ""}`}>
         <div className="list-sessions" key={movie.id}>

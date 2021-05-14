@@ -8,6 +8,7 @@ body {
   font-family: "Righteous";
   text-align: center;
   font-size: 34px;
+  width: 100vw;
 }
 
 .header p {
@@ -35,6 +36,7 @@ img {
   justify-content: center;
   width: 375px;
   margin: 0 auto;
+  display: relative;   
 }
 
 .movie {
@@ -73,13 +75,14 @@ img {
 }
 
 .footer {
-  width: 100%;
+  width: 100vw;
   background-color: #dfe6ed;
   border: 1px solid #9eadba;
   position: fixed;
   bottom: 0;
   left: 0;
   display: flex;
+  align-items: center;
 }
 
 .footer-movie {
@@ -98,19 +101,14 @@ img {
 }
 
 .footer .title {
-  font-size: 26px;
-  padding-top: 40px;
+  font-size: 26px;  
   color: #293845;
 }
 
 .title-session {
-  font-size: 26px;
-  padding-top: 35px;
+  font-size: 26px;  
   color: #293845;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 70vw;
+  
 }
 
 .title-hour {
@@ -221,20 +219,27 @@ img {
 }
 
 .title {
-  font-size: 13px;
-  margin-top: 8px;
+  font-size: 13px;  
 }
 
 .title-input {
   font-size: 18px;
 }
 
-#placeholder-text::placeholder {
+#placeholder-text1::placeholder {
   font-size: 18px;
   font-style: italic;
   color: #afafaf;
   padding-left: 5px;
 }
+
+#placeholder-text2::placeholder {
+  font-size: 18px;
+  font-style: italic;
+  color: #afafaf;
+  padding-left: 5px;
+}
+
 
 .name,
 .cpf {
@@ -346,6 +351,18 @@ a {
   background-color: gray;
 }
 
+.go-back img {
+  width: 30px;
+  height: 30px;  
+}
+
+.go-back {  
+  width: 60px;
+  height: 60px;
+  border: none;
+  background-color: #ffffff;  
+}
+
 @media (max-width: 320px) {
   .title-session,
   .title-hour {
@@ -377,7 +394,8 @@ a {
   }
 
   .selection {
-    font-size: 20px;
+    font-size: 20px;   
+     
   }
 
   .home {
