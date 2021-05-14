@@ -1,27 +1,24 @@
 import ReactDOM from "react-dom";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
+import { useState } from "react";
+import "./css/reset.css";
+import "./css/styles.css";
+import Header from "./components/Header";
 import MoviesList from "./components/MoviesList";
 import Session from "./components/Session";
 import SessionSeats from "./components/SessionSeats";
 import Sucess from "./components/Sucess";
-import { useState } from "react";
-
-import  "./css/reset.css"
-import  "./css/styles.css"
-
-import { Switch, Route, BrowserRouter } from "react-router-dom";
 
 function App() {
   const [sessionSeats, setSessionSeats] = useState([]);
   const [sessionInfo, setSessionInfo] = useState([]);
   const [listClientInfo, setListClientInfo] = useState({});
   const [listOfChosenSeats, setListOfChosenSeats] = useState([]);
-  const [handleButton, setHandleButton] = useState(true);  
+  const [handleButton, setHandleButton] = useState(true);
 
   return (
     <BrowserRouter>
-      <div className="header">
-        <p>CINEFLEX</p>
-      </div>
+      <Header />
       <Switch>
         <Route path="/" exact>
           <MoviesList />
@@ -40,7 +37,7 @@ function App() {
             listClientInfo={listClientInfo}
             setListClientInfo={setListClientInfo}
             handleButton={handleButton}
-            setHandleButton={setHandleButton}            
+            setHandleButton={setHandleButton}
           />
         </Route>
         <Route path="/sucesso" exact>
@@ -48,7 +45,7 @@ function App() {
             setListOfChosenSeats={setListOfChosenSeats}
             listOfChosenSeats={listOfChosenSeats}
             sessionInfo={sessionInfo}
-            listClientInfo={listClientInfo}            
+            listClientInfo={listClientInfo}
           />
         </Route>
       </Switch>
