@@ -18,19 +18,21 @@ body {
 .selection {
   font-size: 25px;
   text-align: center;
-  margin: 40px;
+  margin: 39px;
+  letter-spacing: 0.02em;
+  color: #293845;
 }
 
 img {
   width: 129px;
-  height: 193px;  
+  height: 193px;
   margin: 8px;
 }
 
 .movies {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;  
+  justify-content: center;
   width: 375px;
   margin: 0 auto;
 }
@@ -42,15 +44,19 @@ img {
   border-radius: 3px;
 }
 .session-day {
-  padding-left: 10px;
+  padding-left: 20px;
   font-size: 20px;
+  letter-spacing: 0.02em;
+  padding-bottom: 20px;
+  color: #293845;
 }
 
 .session-time {
   display: flex;
   margin-bottom: 20px;
   margin-top: 8px;
-}
+  padding-left: 15px;
+  }
 
 .time {
   background: #e8833a;
@@ -58,7 +64,12 @@ img {
   padding: 10px;
   color: #ffffff;
   font-size: 18px;
-  margin: 8px;
+  margin: 4px;
+  width: 82px;
+  height: 43px;
+  text-align: center;
+  padding-top: 12px;
+  letter-spacing: 0.02em;
 }
 
 .footer {
@@ -140,6 +151,9 @@ img {
   margin-top: 25px;
   display: flex;
   justify-content: space-evenly;
+  width: 375px;
+  margin: 0 auto;
+  margin-top: 20px;
 }
 
 .selected .circle {
@@ -148,25 +162,25 @@ img {
   background-color: #8dd7cf;
   color: #8dd7cf;
   text-align: center;
-  border: 1px solid #1AAE9E;
+  border: 1px solid #1aae9e;
   box-sizing: border-box;
   border-radius: 17px;
-  margin-left: 25px;
+  margin: 0 auto;
 }
 
 .selected-seat {
   background-color: #8dd7cf;
-  border: 1px solid #808F9D;
+  border: 1px solid #808f9d;
 }
 
 .available-seat {
   background-color: #c3cfd9;
-  border: 1px solid #808F9D;
+  border: 1px solid #808f9d;
 }
 
 .unavailable-seat {
   background-color: #fbe192;
-  border: 1px solid #F7C52B;
+  border: 1px solid #f7c52b;
 }
 
 .available .circle {
@@ -175,10 +189,10 @@ img {
   background-color: #c3cfd9;
   color: #c3cfd9;
   text-align: center;
-  border: 1px solid #808F9D;
+  border: 1px solid #808f9d;
   box-sizing: border-box;
   border-radius: 17px;
-  margin-left: 25px;
+  margin: 0 auto;
 }
 
 .unavailable .circle {
@@ -187,10 +201,10 @@ img {
   background-color: #fbe192;
   color: #fbe192;
   text-align: center;
-  border: 1px solid #F7C52B;
+  border: 1px solid #f7c52b;
   box-sizing: border-box;
   border-radius: 17px;
-  margin-left: 25px;
+  margin: 0 auto;
   background: #fbe192;
 }
 
@@ -202,10 +216,24 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .title {
-  font-size: 18px;  
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.title-input {
+  font-size: 18px;
+}
+
+#placeholder-text::placeholder {
+  font-size: 18px;
+  font-style: italic;
+  color: #afafaf;
+  padding-left: 5px;
 }
 
 .name,
@@ -214,10 +242,13 @@ img {
   height: 50px;
   width: 100%;
   margin-bottom: 10px;
+  border: 1px solid #d5d5d5;
+  border-radius: 3px;
 }
 
 .reserve-seat {
-  width: 200px;
+  width: 225px;
+  height: 48px;
   border: none;
   background: #e8833a;
   border-radius: 5px;
@@ -226,18 +257,21 @@ img {
   margin: 0 auto;
   margin-top: 20px;
   margin-bottom: 150px;
-  padding: 15px;  
+  padding: 15px;
   display: block;
+  letter-spacing: 0.04em;
 }
 
-
 .sucess {
-  font-size: 25px;
+  font-size: 24px;
   text-align: center;
   margin: 40px;
   color: #247a6b;
   font-weight: bold;
-  margin-bottom: 80px;
+  margin-bottom: 70px;
+  padding-left: 60px;
+  padding-right: 60px;
+  letter-spacing: 0.04em;
 }
 
 .session-info-title {
@@ -246,16 +280,22 @@ img {
   padding-left: 8px;
   font-weight: bold;
   margin-bottom: 15px;
+  padding-left: 28px;
+  letter-spacing: 0.04em;
 }
 
 .session-movie {
   font-size: 22px;
   padding-left: 8px;
+  padding-left: 28px;
+  letter-spacing: 0.04em;
 }
 
 .session-info {
   font-size: 22px;
   padding-left: 8px;
+  padding-left: 28px;
+  letter-spacing: 0.04em;
 }
 
 .ticket-info-title,
@@ -266,9 +306,11 @@ img {
   font-weight: bold;
   margin-top: 45px;
   margin-bottom: 15px;
+  padding-left: 28px;
+  letter-spacing: 0.04em;
 }
 
-.home {    
+.home {
   width: 200px;
   border: none;
   background: #e8833a;
@@ -277,11 +319,13 @@ img {
   font-size: 18px;
   margin: 0 auto;
   padding: 15px;
-   
+  display: block;
+  margin-top: 50px;
+  letter-spacing: 0.04em;
 }
 
-button:hover{
-    cursor: pointer;
+button:hover {
+  cursor: pointer;
 }
 
 a {
@@ -289,13 +333,22 @@ a {
   height: 248px;
 }
 
-.showtime{
+.showtime {
   width: auto;
   height: auto;
 }
 
+.last{
+  margin-bottom: 150px;
+}
+
+.reserve-seat:disabled{
+  background-color: gray;
+}
+
 @media (max-width: 320px) {
-  .title-session, .title-hour {
+  .title-session,
+  .title-hour {
     font-size: 20px;
   }
 
@@ -303,9 +356,42 @@ a {
     width: 100%;
   }
 
-  .movie {
+  .seat {
+    width: 24px;
+    height: 24px;
+    margin: 2px;
+  }
 
+  .user-data {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .seats {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .seats-subtitle {
+    width: auto !important;
+  }
+
+  .selection {
+    font-size: 20px;
+  }
+
+  .home {
+    margin-bottom: 40px;
+  }
+
+  a {
+    width: 160px;
+    height: 227px;
+  }
+
+  img {
+    width: 106px;
+    height: 163px;
+    margin: 8px;
   }
 }
-
-

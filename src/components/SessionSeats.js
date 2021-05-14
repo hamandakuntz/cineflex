@@ -14,21 +14,23 @@ export default function SessionSeats({
   setSessionSeats,
   listClientInfo,
   setListClientInfo,
+  handleButton,
+  setHandleButton
 }) {
-  const { idSessao } = useParams();
+  const { idSession } = useParams();
   const [clientName, setClientName] = useState("");
   const [clientCPF, setClientCPF] = useState("");
 
   useEffect(() => {
     const promise = axios.get(
-      `https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/showtimes/${idSessao}/seats`
+      `https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/showtimes/${idSession}/seats`
     );
 
     promise.then((res) => {
       setSessionSeats(res.data.seats);
       setSessionInfo(res.data);
     });
-  }, [idSessao, setSessionSeats, setSessionInfo]);  
+  }, [idSession, setSessionSeats, setSessionInfo]);
 
   function createListClientInfo() {
     const newListClientInfo = {
@@ -43,6 +45,12 @@ export default function SessionSeats({
     );
     promise.then((res) => console.log(res));
     setListClientInfo({ ...listClientInfo, newListClientInfo });
+  }
+
+  if (listOfChosenSeats.length !== 0 && clientCPF !== "" && clientName !== ""){
+    setHandleButton(false)
+  } else {
+    setHandleButton(true)
   }
 
   return (
@@ -78,28 +86,33 @@ export default function SessionSeats({
         </div>
       </div>
       <div className="user-data">
-        <div className="title">Nome do comprador:</div>
+        <div className="title-input">Nome do comprador:</div>
         <input
+          id="placeholder-text"
           value={clientName}
           onChange={(e) => setClientName(e.target.value)}
           type="text"
           className="name"
-          placeholder="Digite seu nome"
+          placeholder="Digite seu nome..."
         />
-        <div className="title">CPF do comprador:</div>
+        <div className="title-input">CPF do comprador:</div>
         <input
+          id="placeholder-text"
           value={clientCPF}
           onChange={(e) => setClientCPF(e.target.value)}
           type="text"
           className="cpf"
-          placeholder="Digite seu CPF"
+          placeholder="Digite seu CPF..."
         />
-        </div>
-        <Link className="button-reserve-seat" to={{ pathname: "/sucesso", listClientInfo }}>
-          <button onClick={createListClientInfo} className="reserve-seat">
-            Reservar assento(s)
-          </button>
-        </Link>      
+      </div>
+      <Link
+        className="button-reserve-seat"
+        to={{ pathname: "/sucesso", listClientInfo }}
+      >
+        <button onClick={createListClientInfo} className="reserve-seat" disabled={handleButton}>
+          Reservar assento(s)
+        </button>
+      </Link>
       {sessionInfo.length === 0 ? (
         ""
       ) : (

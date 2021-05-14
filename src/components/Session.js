@@ -5,14 +5,14 @@ import axios from "axios";
 import Footer from "./Footer";
 
 export default function Session() {
-  const { idFilme } = useParams();
+  const { idMovie } = useParams();
   const [movieSession, setMovieSession] = useState([]);
   const [movieTitle, setMovieTitle] = useState([]);
   const [movieImg, setMovieImg] = useState([]);
 
   useEffect(() => {
     const promise = axios.get(
-      `https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies/${idFilme}/showtimes`
+      `https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies/${idMovie}/showtimes`
     );
 
     promise.then((res) => {
@@ -20,13 +20,14 @@ export default function Session() {
       setMovieTitle(res.data.title);
       setMovieImg(res.data.posterURL);
     });
-  }, [idFilme]);
+  }, [idMovie]);
 
   return (
     <>
       <div className="selection">Selecione o horário</div>
-      {movieSession.map((movie) => (
-        <div key={movie.id}>
+      {movieSession.map((movie, i) => (
+        <div key={movie.id} className={`evolve ${movieSession.length - 1 === i ? "last" : ""}`}>
+        <div className="list-sessions" key={movie.id}>
           <div className="session-day">
             {movie.weekday} - {movie.date}
           </div>
@@ -37,6 +38,7 @@ export default function Session() {
               </Link>
             ))}
           </div>
+        </div>
         </div>
       ))}
       ;
